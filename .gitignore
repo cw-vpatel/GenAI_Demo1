@@ -1,0 +1,4 @@
+genai-assessment
+.env
+.vscode
+__pycache__
