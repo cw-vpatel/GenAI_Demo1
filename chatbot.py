@@ -33,7 +33,7 @@ def get_session_history(session_id:str):
         store[session_id]=ChatMessageHistory()
     return store[session_id]
 
-chain = prompt | llm
+chain = prompt | llm | StrOutputParser()
 with_message_history = RunnableWithMessageHistory(chain,get_session_history=get_session_history,input_messages_key='input',history_messages_key='history')
 input_val = input()
 config = {'configurable':{'session_id':'user1'}}
