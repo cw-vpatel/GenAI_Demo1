@@ -22,3 +22,5 @@ LANGSMITH_API_KEY=
 LANGSMITH_PROJECT=""
 
 ```
+<img width="1462" height="832" alt="image" src="https://github.com/user-attachments/assets/c166b8d8-7c61-4527-99c9-c5932e355439" />
+
