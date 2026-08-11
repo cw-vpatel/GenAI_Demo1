@@ -40,7 +40,7 @@ prompt_child = ChatPromptTemplate(
     ]
 )
 
-chain_child = prompt | prompt_child | llm | output
+chain_child = chain | prompt_child | llm | output
 print("================Task 9================")
 response = chain_child.invoke("What is Artificial Intellegence?")
 print(response)
