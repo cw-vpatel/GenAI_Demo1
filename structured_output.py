@@ -1,7 +1,7 @@
 
 from typing import Literal,List
 from urllib import response
-
+from langchain_core.output_parsers import StrOutputParser
 from langchain.messages import HumanMessage
 from langchain_core.prompts import ChatPromptTemplate
 from langchain_groq import ChatGroq
@@ -19,7 +19,13 @@ prompt = ChatPromptTemplate(
         )
     ]
 )
-res=prompt.invoke(input={
+groq_api = os.getenv('GROQ_API_KEY')
+llm = ChatGroq(
+    model='openai/gpt-oss-120b',
+)
+
+chain = prompt | llm | StrOutputParser
+res=chain.invoke(input={
     'product_name':'Dove',
     'target_audience':'teens',
     'tone':'sweet'
@@ -29,11 +35,7 @@ res=prompt.invoke(input={
 #  Task 12
 print()
 print()
-groq_api = os.getenv('GROQ_API_KEY')
 
-llm = ChatGroq(
-    model='openai/gpt-oss-120b',
-)
 
 prompt2 = ChatPromptTemplate(
     [
