@@ -5,13 +5,20 @@ load_dotenv()
 os.environ['GROQ_API_KEY'] = os.getenv('GROQ_API_KEY')
 if not os.environ['GROQ_API_KEY']:
     print('Groq API Missing !!!!!!!')
+else:
+    print('Groq API found.')
+    
 os.environ['LANGSMITH_TRACING'] = os.getenv('LANGSMITH_TRACING')
 os.environ['LANGSMITH_API_KEY'] = os.getenv('LANGSMITH_API_KEY')
 if not os.environ['LANGSMITH_API_KEY']:
     print('Langsmith API Missing !!!!!!!')
+else:    
+    print('Langsmith API Found.')
 os.environ['LANGSMITH_PROJECT'] = os.getenv('LANGSMITH_PROJECT')
 if not os.environ['LANGSMITH_PROJECT']:
     print('langsmith project Missing !!!!!!!')
+else:    
+    print('langsmith project Found')
 
 # Hard-Coding the enviroment is not a good practice because our code might get leaked and if the enviroment varible are hard coded then our api keys get leaked and can be used by other.
 
