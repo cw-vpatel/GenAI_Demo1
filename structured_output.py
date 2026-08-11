@@ -20,9 +20,10 @@ prompt = ChatPromptTemplate(
     ]
 )
 groq_api = os.getenv('GROQ_API_KEY')
-llm = ChatGroq(
-    model='openai/gpt-oss-120b',
-)
+if groq_api:
+    llm = ChatGroq(
+        model='openai/gpt-oss-120b',
+    )
 
 chain = prompt | llm | StrOutputParser
 res=chain.invoke(input={

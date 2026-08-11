@@ -15,10 +15,10 @@ from rich.panel import Panel
 load_dotenv()
 
 groq_api = os.getenv('GROQ_API_KEY')
-
-llm = ChatGroq(
-    model='openai/gpt-oss-120b'
-)
+if groq_api:
+    llm = ChatGroq(
+        model='openai/gpt-oss-120b'
+    )
 
 prompt = ChatPromptTemplate(
     [
